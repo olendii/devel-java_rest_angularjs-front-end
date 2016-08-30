@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="trainer-ui">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Trainer</title>
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="/css/ng-table.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Test Logo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Test function</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">References</li>
+                            <li><a href="#/branches">Branches</a></li>
+                            <li class="dropdown-header">User management</li>
+                            <li><a href="#/users">Users</a></li>
+                            <li><a href="#/teachers">Teachers</a></li>
+                            <li><a href="#/learners">Learners</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <ng-view></ng-view>
+
+</div>
+
+<script src="/js/angular.min.js"></script>
+<script src="/js/angular-route.min.js"></script>
+<script src="/js/ng-table.min.js"></script>
+<script src="/js/angular-animate.min.js"></script>
+<script src="/js/ui-bootstrap-tpls-2.0.1.min.js"></script>
+<script src="/app.js"></script>
+<script src="/common/service/crud_service.js"></script>
+<script src="/user/controller/user_list_controller.js"></script>
+<script src="/user/controller/user_form_controller.js"></script>
+<script src="/reference/controller/branch_list_controller.js"></script>
+<script src="/reference/controller/branch_form_controller.js"></script>
+<script src="/user/controller/teacher_list_controller.js"></script>
+<script src="/user/controller/teacher_form_controller.js"></script>
+<script src="/user/controller/learner_list_controller.js"></script>
+<script src="/user/controller/learner_form_controller.js"></script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

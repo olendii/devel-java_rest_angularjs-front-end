@@ -1,0 +1,126 @@
+<style>
+    .teachername.ng-valid {
+        background-color: lightgreen;
+    }
+    .teachername.ng-dirty.ng-invalid-required {
+        background-color: red;
+    }
+    .teachername.ng-dirty.ng-invalid-minlength {
+        background-color: yellow;
+    }
+
+    .email.ng-valid {
+        background-color: lightgreen;
+    }
+    .email.ng-dirty.ng-invalid-required {
+        background-color: red;
+    }
+    .email.ng-dirty.ng-invalid-email {
+        background-color: yellow;
+    }
+
+</style>
+
+<div class="modal-header">
+    <button type="button"
+            class="close"
+            data-ng-click="cancel()"
+            data-dismiss="modal"
+            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h3 class="modal-title">{{header}}</h3>
+</div>
+<div class="modal-body">
+    <form data-ng-submit="submit()" name="teacherForm" class="form-horizontal">
+        <input type="hidden" ng-model="teacher.id" />
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="uname">Имя</label>
+                <div class="col-md-9">
+                    <input type="text" ng-model="teacher.name" id="uname" class="teachername form-control input-sm"
+                           placeholder="Введите имя" required ng-minlength="3"/>
+                    <div class="has-error" ng-show="teacherForm.$dirty">
+                        <span ng-show="teacherForm.uname.$error.required">Это обязательное поле</span>
+                        <span ng-show="teacherForm.uname.$error.minlength">Минимальная длина - 3 символа</span>
+                        <span ng-show="teacherForm.uname.$invalid">Это поле невалидно</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="ulogin">Login</label>
+                <div class="col-md-9">
+                    <input type="text" ng-model="teacher.login" id="ulogin" class="form-control input-sm"
+                           placeholder="Введите логин" required ng-minlength="3"/>
+                    <div class="has-error" ng-show="teacherForm.$dirty">
+                        <span ng-show="teacherForm.ulogin.$error.required">Это обязательное поле</span>
+                        <span ng-show="teacherForm.ulogin.$error.minlength">Минимальная длина - 3 символа</span>
+                        <span ng-show="teacherForm.ulogin.$invalid">Это поле невалидно</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="password">Пароль</label>
+                <div class="col-md-9">
+                    <input type="text" ng-model="teacher.password" id="password" class="form-control input-sm"
+                           placeholder="Введите пароль. [Это поле не имеет проверок]"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="email">Email</label>
+                <div class="col-md-9">
+                    <input type="email" ng-model="teacher.email" id="email" class="email form-control input-sm"
+                           placeholder="Введите Email" required/>
+                    <div class="has-error" ng-show="teacherForm.$dirty">
+                        <span ng-show="teacherForm.email.$error.required">Это обязательное поле</span>
+                        <span ng-show="teacherForm.email.$invalid">Это поле невалидно</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="phone">Телефон</label>
+                <div class="col-md-9">
+                    <input type="text" ng-model="teacher.phone" id="phone" class="form-control input-sm"
+                           placeholder="Введите телефон. [Это поле не имеет проверок]"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="note">Примечание</label>
+                <div class="col-md-9">
+                    <textarea ng-model="teacher.note" id="note" class="form-control input-sm"
+                              placeholder="Введите примечание. [Это поле не имеет проверок]"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="enabled">Активен</label>
+                <div class="col-md-9">
+                    <input type="checkbox" ng-model="teacher.enabled" id="enabled"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="branch">Подразделение</label>
+                <div class="col-md-9">
+                    <select ng-model="teacher.branchId" ng-options="b.id as b.name for b in allBranches" id="branch"
+                            class="form-control input-sm">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" data-ng-disabled="teacherForm.$invalid" data-ng-click="submit()">Сохранить</button>
+    <button class="btn btn-default" data-ng-click="cancel()">Отмена</button>
+</div>

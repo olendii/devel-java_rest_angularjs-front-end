@@ -1,0 +1,51 @@
+<style>
+    .branchname.ng-valid {
+        background-color: lightgreen;
+    }
+    .branchname.ng-dirty.ng-invalid-required {
+        background-color: red;
+    }
+    .branchname.ng-dirty.ng-invalid-minlength {
+        background-color: yellow;
+    }
+</style>
+
+<div class="modal-header">
+    <button type="button"
+            class="close"
+            data-ng-click="cancel()"
+            data-dismiss="modal"
+            aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h3 class="modal-title">{{header}}</h3>
+</div>
+<div class="modal-body">
+    <form data-ng-submit="submit()" name="branchForm" class="form-horizontal">
+        <input type="hidden" ng-model="branch.id" />
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="bname">Имя</label>
+                <div class="col-md-9">
+                    <input type="text" ng-model="branch.name" id="bname" class="branchname form-control input-sm"
+                           placeholder="Введите имя" required ng-minlength="3"/>
+                    <div class="has-error" ng-show="branchForm.$dirty">
+                        <span ng-show="branchForm.bname.$error.required">Это обязательное поле</span>
+                        <span ng-show="branchForm.bname.$error.minlength">Минимальная длина - 3 символа</span>
+                        <span ng-show="branchForm.bname.$invalid">Это поле невалидно</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="enabled">Активен</label>
+                <div class="col-md-9">
+                    <input type="checkbox" ng-model="branch.enabled" id="enabled"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" data-ng-disabled="branchForm.$invalid" data-ng-click="submit()">Сохранить</button>
+    <button class="btn btn-default" data-ng-click="cancel()">Отмена</button>
+</div>

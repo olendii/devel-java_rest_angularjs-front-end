@@ -1,0 +1,39 @@
+<div class="table-responsive">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <button type="button" data-ng-click="teachersCtrl.create()" class="btn btn-primary btn-sm">Создать
+            </button>
+        </div>
+        <div class="panel-body">
+            <table data-ng-table="teachersCtrl.teachersTable" class="table table-striped table-bordered table-condensed">
+                <tr data-ng-repeat="d in $data">
+                    <td data-title="'ID'" data-sortable="'id'">{{d.id}}</td>
+                    <td data-title="'Имя'" data-filter="{name: 'text'}" data-sortable="'name'">{{d.name}}</td>
+                    <td data-title="'Email'">
+                        <a data-ng-href="mailto:{{d.email}}" target="_blank"><em>{{d.email}}</em></a>
+                    </td>
+                    <td data-title="'Телефон'">{{d.phone}}</td>
+                    <td data-title="'Примечание'" data-ng-bind="d.note"></td>
+                    <td data-title="'Подразделение'" data-ng-bind="d.branchName"></td>
+                    <td data-title="''" data-sortable="'enabled'" align="center">
+                        <button type="button" data-ng-click="teachersCtrl.toggleActive(d.id, d.enabled)"
+                                class="btn btn-default btn-xs">
+                            <span class="glyphicon"
+                                  ng-class="{true:'glyphicon-ok-circle text-success', false:'glyphicon-ban-circle text-danger', '':'hidden'}[d.enabled]">
+                            </span>
+                        </button>
+                    </td>
+                    <td align="center">
+                        <button type="button" data-ng-click="teachersCtrl.edit(d.id)" class="btn btn-default btn-xs">
+                            <span class="glyphicon glyphicon-edit text-info"></span>
+                        </button>
+                        <button type="button" data-ng-click="teachersCtrl.remove(d.id)"
+                                class="btn btn-default btn-xs">
+                            <span class="glyphicon glyphicon-trash text-danger"></span>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
