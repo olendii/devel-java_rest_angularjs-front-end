@@ -13,3 +13,5 @@ Part 1: [https://github.com/olendii/devel-java_rest_angularjs-back-end]
 
 ToDo:
 * Spring Security
+
+Demo: [http://useradmin.art-it.com.ua]
