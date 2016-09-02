@@ -7,7 +7,7 @@
         'ui.bootstrap'
     ])
         .constant("mainConfig", {
-            "REST_SERVICE_URI": "http://localhost:8081/",
+            "REST_SERVICE_URI": "http://useradmin.herokuapp.com/",
             "USER_PARTIAL_URI": "users",
             "ROLE_PARTIAL_URI": "roles",
             "BRANCH_PARTIAL_URI": "branches",
