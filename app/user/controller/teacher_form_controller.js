@@ -1,18 +1,18 @@
 'use strict';
 
-angular.module('user_admin-ui')
+angular.module('trainer-ui')
     .controller('TeacherFormController',
         ['$scope', 'CrudService', '$uibModalInstance', 'params', 'mainConfig',
             function ($scope, CrudService, $uibModalInstance, params, mainConfig) {
 
                 var self = this;
                 $scope.header = params.header;
-                if (params.question) { $scope.question = params.question; }
+                if (params.hasOwnProperty('question')) { $scope.question = params.question; }
 
                 $scope.allBranches = [];
-                if (params.branches) { $scope.allBranches = params.branches; }
+                if (params.hasOwnProperty('branches')) { $scope.allBranches = params.branches; }
 
-                if (params.id) {
+                if (params.hasOwnProperty('id')) {
                     if (params.id === null) {
                         self.nullTeacher = {
                             id: null,

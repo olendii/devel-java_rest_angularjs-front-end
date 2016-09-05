@@ -1,18 +1,18 @@
 'use strict';
 
-angular.module('user_admin-ui')
+angular.module('trainer-ui')
     .controller('UserFormController',
         ['$scope', 'CrudService', '$uibModalInstance', 'params', 'mainConfig',
             function ($scope, CrudService, $uibModalInstance, params, mainConfig) {
 
                 var self = this;
                 $scope.header = params.header;
-                if (params.question) { $scope.question = params.question; }
+                if (params.hasOwnProperty('question')) { $scope.question = params.question; }
 
                 $scope.allRoles = [];
-                if (params.roles) { $scope.allRoles = params.roles; }
+                if (params.hasOwnProperty('roles')) { $scope.allRoles = params.roles; }
 
-                if (params.id) {
+                if (params.hasOwnProperty('id')) {
                     if (params.id === null) {
                         self.nullUser = {
                             id: null,
