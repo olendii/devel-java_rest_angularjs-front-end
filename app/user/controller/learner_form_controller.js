@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('trainer-ui')
+angular.module('user_admin-ui')
     .controller('LearnerFormController',
         ['$scope', 'CrudService', '$uibModalInstance', 'params', 'mainConfig',
             function ($scope, CrudService, $uibModalInstance, params, mainConfig) {
