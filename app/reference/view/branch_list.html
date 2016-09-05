@@ -10,7 +10,7 @@
                     <td data-title="'ID'" data-sortable="'id'">{{d.id}}</td>
                     <td data-title="'Имя'" data-filter="{name: 'text'}" data-sortable="'name'">{{d.name}}</td>
                     <td data-title="''" data-sortable="'enabled'" align="center">
-                        <button type="button" data-ng-click="usersCtrl.toggleActive(d.id, d.enabled)"
+                        <button type="button" data-ng-click="branchesCtrl.toggleActive(d.id, d.enabled)"
                                 class="btn btn-default btn-xs">
                             <span class="glyphicon"
                                   ng-class="{true:'glyphicon-ok-circle text-success', false:'glyphicon-ban-circle text-danger', '':'hidden'}[d.enabled]">
